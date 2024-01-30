@@ -1,21 +1,25 @@
 import environ
 from pathlib import Path
 
+import logging
+import logging.config
+from django.utils.log import DEFAULT_LOGGING
+
 env = environ.Env(DEBUG=(bool, False))
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 environ.Env.read_env(BASE_DIR / '.env')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env("SECRET_KEY")
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env("DEBUG")
+DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = env("ALLOWED_HOSTS").split(" ")
+ALLOWED_HOSTS = env('ALLOWED_HOSTS').split(' ')
 
 
 # Application definition
@@ -33,17 +37,17 @@ DJANGO_APPS = [
 SITE_ID = 1
 
 THIRD_PARTY_APPS = [
-    "rest_framework",
-    "django_filters",
-    "django_countries",
-    "phonenumber_field",
+    'rest_framework',
+    'django_filters',
+    'django_countries',
+    'phonenumber_field',
 ]
 
 LOCAL_APPS = [
-    "apps.common",
-    "apps.profiles",
-    "apps.ratings",
-    "apps.users",
+    'apps.common',
+    'apps.profiles',
+    'apps.ratings',
+    'apps.users',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -82,13 +86,6 @@ WSGI_APPLICATION = 'real_estate.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -124,9 +121,50 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = 'staticfiles/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_DIR = []
+MEDIA_URL = '/mediafiles/'
+MEDIA_ROOT = BASE_DIR / 'mediafiles'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Loggin
+logger = logging.getLogger(__name__)
+
+logging.config.dictConfig(
+    {
+        'version': 1,
+        'disable_existing_loggers': False,
+        'formatters': {
+            'console': {
+                'format': '%(asctime)s %(name)-12s %(levelname)-8s %(message)s'
+            },
+            'file': {
+                'format': '%(asctime)s %(name)-12s %(levelname)-8s %(message)s'
+            },
+            'django.server': DEFAULT_LOGGING["formatters"]["django.server"],
+        },
+        'handlers': {
+            'console': {
+                'class': 'logging.StreamHandler',
+                'formatter': 'console',
+            },
+            'file': {
+                'level': 'INFO',
+                'class': 'logging.FileHandler',
+                'formatter': 'file',
+                'filename': 'logs/real_estate.log',
+            },
+            'django.server': DEFAULT_LOGGING["handlers"]["django.server"],
+        },
+        'loggers': {
+            '': {'level': 'INFO', 'handlers': ['console', 'file'], 'propagate': False},
+            'apps': {'level': 'INFO', 'handlers': ['console'], 'propagate': False},
+            'django.server': DEFAULT_LOGGING["loggers"]["django.server"],
+        },
+    },
+)
