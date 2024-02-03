@@ -64,7 +64,7 @@ class CustomUserManager(BaseUserManager):
                 _('Conta de Administrador: é necessário informar um e-mail')
             )
         user = self.create_user(
-            username, first_name, last_name, email, **extra_fields
+            username, first_name, last_name, email, password, **extra_fields
         )
         user.save(using=self._db)
         return user
