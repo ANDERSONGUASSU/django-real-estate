@@ -132,7 +132,9 @@ MEDIA_ROOT = BASE_DIR / 'mediafiles'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Loggin
+AUTH_USER_MODEL = 'users.User'
+
+# Logs
 logger = logging.getLogger(__name__)
 
 logging.config.dictConfig(
@@ -146,7 +148,7 @@ logging.config.dictConfig(
             'file': {
                 'format': '%(asctime)s %(name)-12s %(levelname)-8s %(message)s'
             },
-            'django.server': DEFAULT_LOGGING["formatters"]["django.server"],
+            'django.server': DEFAULT_LOGGING['formatters']['django.server'],
         },
         'handlers': {
             'console': {
@@ -159,12 +161,20 @@ logging.config.dictConfig(
                 'formatter': 'file',
                 'filename': 'logs/real_estate.log',
             },
-            'django.server': DEFAULT_LOGGING["handlers"]["django.server"],
+            'django.server': DEFAULT_LOGGING['handlers']['django.server'],
         },
         'loggers': {
-            '': {'level': 'INFO', 'handlers': ['console', 'file'], 'propagate': False},
-            'apps': {'level': 'INFO', 'handlers': ['console'], 'propagate': False},
-            'django.server': DEFAULT_LOGGING["loggers"]["django.server"],
+            '': {
+                'level': 'INFO',
+                'handlers': ['console', 'file'],
+                'propagate': False,
+            },
+            'apps': {
+                'level': 'INFO',
+                'handlers': ['console'],
+                'propagate': False,
+            },
+            'django.server': DEFAULT_LOGGING['loggers']['django.server'],
         },
     },
 )
