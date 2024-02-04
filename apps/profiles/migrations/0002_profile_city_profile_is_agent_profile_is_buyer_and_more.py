@@ -13,32 +13,53 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='profile',
             name='city',
-            field=models.CharField(default='Nairobi', max_length=180, verbose_name='City'),
+            field=models.CharField(
+                default='Nairobi', max_length=180, verbose_name='City'
+            ),
         ),
         migrations.AddField(
             model_name='profile',
             name='is_agent',
-            field=models.BooleanField(default=False, help_text='Are you an agent?', verbose_name='Agent'),
+            field=models.BooleanField(
+                default=False,
+                help_text='Are you an agent?',
+                verbose_name='Agent',
+            ),
         ),
         migrations.AddField(
             model_name='profile',
             name='is_buyer',
-            field=models.BooleanField(default=False, help_text='Are you looking to Buy a property?', verbose_name='Buyer'),
+            field=models.BooleanField(
+                default=False,
+                help_text='Are you looking to Buy a property?',
+                verbose_name='Buyer',
+            ),
         ),
         migrations.AddField(
             model_name='profile',
             name='is_seller',
-            field=models.BooleanField(default=False, help_text='Are you looking to sell a property?', verbose_name='Seller'),
+            field=models.BooleanField(
+                default=False,
+                help_text='Are you looking to sell a property?',
+                verbose_name='Seller',
+            ),
         ),
         migrations.AddField(
             model_name='profile',
             name='num_reviews',
-            field=models.IntegerField(blank=True, default=0, null=True, verbose_name='Number of Reviews'),
+            field=models.IntegerField(
+                blank=True,
+                default=0,
+                null=True,
+                verbose_name='Number of Reviews',
+            ),
         ),
         migrations.AddField(
             model_name='profile',
             name='rating',
-            field=models.DecimalField(blank=True, decimal_places=2, max_digits=4, null=True),
+            field=models.DecimalField(
+                blank=True, decimal_places=2, max_digits=4, null=True
+            ),
         ),
         migrations.AddField(
             model_name='profile',

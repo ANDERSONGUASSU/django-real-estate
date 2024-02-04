@@ -21,7 +21,9 @@ class Profile(TimeStampedUUIDModel):
         User, related_name='profile', on_delete=models.CASCADE
     )
     phone_number = PhoneNumberField(
-        verbose_name=_('Phone Number'), max_length=30, default='+55(14) 9 9999-9999'
+        verbose_name=_('Phone Number'),
+        max_length=30,
+        default='+55(14) 9 9999-9999',
     )
     about_me = models.TextField(
         verbose_name=_('About me'), default='Diga algo sobre você'
@@ -41,7 +43,7 @@ class Profile(TimeStampedUUIDModel):
         default=Gender.OTHER,
     )  # max_lenght=20)
     country = CountryField(
-        verbose_name=_('Country'), default='BRL', blank=False, null=False
+        verbose_name=_('Country'), default='BR', blank=False, null=False
     )
     city = models.CharField(
         verbose_name=_('Cidade'),
