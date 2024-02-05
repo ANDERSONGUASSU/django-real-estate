@@ -76,12 +76,12 @@ class UserAdmim(BaseUserAdmin):
             None,
             {
                 'classes': ('wide',),
-                'filds': (
+                'fields': (
                     'email',
                     'password1',
                     'password2',
                     'is_staff',
-                    'is_activate',
+                    'is_active',
                 ),
             },
         ),
