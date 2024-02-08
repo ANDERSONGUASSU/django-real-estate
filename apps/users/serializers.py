@@ -42,13 +42,15 @@ class UserSerializer(serializers.ModelSerializer):
         return obj.last_name.title()
 
     def to_representation(self, instance):
-        representation = super(UserSerializer, self).to_representation(instance)
+        representation = super(UserSerializer, self).to_representation(
+            instance
+        )
         if instance.is_superuser:
-            representation["admin"] = True
+            representation['admin'] = True
         return representation
 
 
-class CreateUsersSerializer(UserCreateSerializer):
+class CreateUserSerializer(UserCreateSerializer):
     class Meta(UserCreateSerializer.Meta):
         model = User
         fields = [

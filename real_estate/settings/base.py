@@ -125,7 +125,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'staticfiles/'
+STATIC_URL = '/staticfiles/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIR = []
 MEDIA_URL = '/mediafiles/'
@@ -146,7 +146,7 @@ REST_FRAMEWORK = {
 
 SIMPLE_JWT = {
     'AUTH_HEADER_TYPES': (
-        'BEARER',
+        'Bearer',
         'JWT',
     ),
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=120),
