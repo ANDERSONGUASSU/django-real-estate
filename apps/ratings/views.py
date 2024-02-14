@@ -50,4 +50,4 @@ def create_agent_review(request, profile_id):
 
         agent_profile.rating = round(total / len(reviews), 2)
         agent_profile.save()
-        return Response("Review Added")
+        return Response({"message": "Review Added", "review_id": review.id})
