@@ -9,24 +9,28 @@ from real_estate.settings.development import DEFAULT_FROM_EMAIL
 from .models import Enquiry
 
 
-@api_view(["POST"])
+@api_view(['POST'])
 @permission_classes([permissions.AllowAny])
 def send_enquiry_email(request):
     data = request.data
 
     try:
-        subject = data["subject"]
-        name = data["name"]
-        email = data["email"]
-        message = data["message"]
-        from_email = data["email"]
+        subject = data['subject']
+        name = data['name']
+        email = data['email']
+        message = data['message']
+        from_email = data['email']
         recipient_list = [DEFAULT_FROM_EMAIL]
 
-        send_mail(subject, message, from_email, recipient_list, fail_silently=True)
+        send_mail(
+            subject, message, from_email, recipient_list, fail_silently=True
+        )
 
-        enquiry = Enquiry(name=name, email=email, subject=subject, message=message)
+        enquiry = Enquiry(
+            name=name, email=email, subject=subject, message=message
+        )
         enquiry.save()
-        return Response({"success": "You Enquiry was successfully submitted"})
+        return Response({'success': 'You Enquiry was successfully submitted'})
 
     except Exception as e:
-        return Response({"fail": f"Failed to send enquiry. Error: {str(e)}"})
+        return Response({'fail': f'Failed to send enquiry. Error: {str(e)}'})

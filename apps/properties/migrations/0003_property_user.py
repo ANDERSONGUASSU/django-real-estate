@@ -17,6 +17,12 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='property',
             name='user',
-            field=models.ForeignKey(default=apps.users.models.User, on_delete=django.db.models.deletion.DO_NOTHING, related_name='agent_buyer', to=settings.AUTH_USER_MODEL, verbose_name='Agente, Seller or Buyer'),
+            field=models.ForeignKey(
+                default=apps.users.models.User,
+                on_delete=django.db.models.deletion.DO_NOTHING,
+                related_name='agent_buyer',
+                to=settings.AUTH_USER_MODEL,
+                verbose_name='Agente, Seller or Buyer',
+            ),
         ),
     ]

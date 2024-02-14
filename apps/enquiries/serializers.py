@@ -5,4 +5,4 @@ from .models import Enquiry
 class EnquirySerializer(serializers.ModelSerializer):
     class Meta:
         model = Enquiry
-        fields = "__all__"
+        fields = '__all__'

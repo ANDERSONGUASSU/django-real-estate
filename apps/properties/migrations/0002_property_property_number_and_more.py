@@ -14,11 +14,19 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='property',
             name='property_number',
-            field=models.IntegerField(default=112, validators=[django.core.validators.MinValueValidator(1)], verbose_name='Property Number'),
+            field=models.IntegerField(
+                default=112,
+                validators=[django.core.validators.MinValueValidator(1)],
+                verbose_name='Property Number',
+            ),
         ),
         migrations.AlterField(
             model_name='property',
             name='street_address',
-            field=models.CharField(default='KG8 Avenue', max_length=150, verbose_name='Street Address'),
+            field=models.CharField(
+                default='KG8 Avenue',
+                max_length=150,
+                verbose_name='Street Address',
+            ),
         ),
     ]

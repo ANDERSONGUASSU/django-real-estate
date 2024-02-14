@@ -66,10 +66,10 @@ class Property(TimeStampedUUIDModel):
         verbose_name=_('Postal code'), max_length=100, default='05399-999'
     )
     street_address = models.CharField(
-        verbose_name=_("Street Address"), max_length=150, default="KG8 Avenue"
+        verbose_name=_('Street Address'), max_length=150, default='KG8 Avenue'
     )
     property_number = models.IntegerField(
-        verbose_name=_("Property Number"),
+        verbose_name=_('Property Number'),
         validators=[MinValueValidator(1)],
         default=112,
     )
