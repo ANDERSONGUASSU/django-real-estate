@@ -48,19 +48,19 @@ flake8:
 	docker compose exec api flake8 .
 
 blue-check:
-	docker compose exec api blue --check --exclude=migrations .
+	docker compose exec api blue --check --exclude=venv .
 
 blue-diff:
-	docker compose exec api blue --diff --exclude=migrations .
+	docker compose exec api blue --diff --exclude=venv .
 
 blue:
-	docker compose exec api blue --exclude=migrations .
+	docker compose exec api blue --exclude=venv .
 
 isort-check:
-	docker compose exec api isort . --check-only --skip env --skip migrations
+	docker compose exec api isort . --check-only --skip env --skip migrations --skip venv
 
 isort-diff:
-	docker compose exec api isort . --diff --skip env --skip migrations
+	docker compose exec api isort . --diff --skip env --skip migrations --skip venv
 	
 isort:
-	docker compose exec api isort . --skip env --skip migrations
+	docker compose exec api isort . --skip env --skip migrations --skip venv

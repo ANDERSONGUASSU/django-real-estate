@@ -1,0 +1,6 @@
+[toll.blue]
+extend-exclude = '''
+/(
+    | env
+)/
+'''
