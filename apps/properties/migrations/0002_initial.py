@@ -18,11 +18,20 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='property',
             name='user',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.DO_NOTHING, related_name='agent_buyer', to=settings.AUTH_USER_MODEL, verbose_name='Agente, Seller or Buyer'),
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.DO_NOTHING,
+                related_name='agent_buyer',
+                to=settings.AUTH_USER_MODEL,
+                verbose_name='Agente, Seller or Buyer',
+            ),
         ),
         migrations.AddField(
             model_name='propertyviews',
             name='property',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='property_views', to='properties.property'),
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name='property_views',
+                to='properties.property',
+            ),
         ),
     ]

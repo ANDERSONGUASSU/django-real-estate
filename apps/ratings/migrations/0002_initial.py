@@ -18,7 +18,12 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='rating',
             name='rater',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to=settings.AUTH_USER_MODEL, verbose_name='User providing the rating'),
+            field=models.ForeignKey(
+                null=True,
+                on_delete=django.db.models.deletion.SET_NULL,
+                to=settings.AUTH_USER_MODEL,
+                verbose_name='User providing the rating',
+            ),
         ),
         migrations.AlterUniqueTogether(
             name='rating',
