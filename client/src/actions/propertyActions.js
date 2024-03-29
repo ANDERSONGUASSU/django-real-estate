@@ -1,4 +1,4 @@
-import { axios } from "axios";
+import axios from "axios";
 import {
 	PROPERTY_LIST_FAIL,
 	PROPERTY_LIST_SUCCESS,
