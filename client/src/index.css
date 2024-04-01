@@ -11,6 +11,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+<<<<<<< HEAD
 main {
 	min-height: 94vh;
 	background-color: #0000001c;
@@ -252,3 +253,5 @@ a.btn.btn-primary:active {
 		transform: rotate(360deg);
 	}
 }
+=======
+>>>>>>> d6be5d3 (chore: setup nginx and redux toolkit with docker)
