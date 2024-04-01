@@ -16,9 +16,4 @@ until worker_ready; do
 done
 >&2 echo 'Celery workers are available and ready!...:-)'
 
-<<<<<<< HEAD
-celery --app=real_estate --broker="${CELERY_BROKER}" flower
-    
-=======
 celery -A real_estate & flower --broker="${CELERY_BROKER}" &
->>>>>>> d6be5d3 (chore: setup nginx and redux toolkit with docker)
