@@ -29,6 +29,7 @@ class PropertySerializer(serializers.ModelSerializer):
             'postal_code',
             'street_address',
             'property_number',
+            'price',
             'tax',
             'final_property_price',
             'plot_area',

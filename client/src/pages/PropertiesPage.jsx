@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
-// import Property from "../components/Property";
+import Property from "../components/Property";
 import Spinner from "../components/Spinner";
-// import Title from "../components/Title";
+import Title from "../components/Title";
 import { getProperties } from "../features/properties/propertySlice"
 
 const PropertiesPage = () => {
@@ -26,7 +26,7 @@ const PropertiesPage = () => {
 	}
 	return (
 		<>
-			{/* <Title title="Our Properties Catalog" /> */}
+			<Title title="Our Properties Catalog" />
 			<Container>
 				<Row>
 					<Col className="mg-top text-center">
@@ -45,7 +45,7 @@ const PropertiesPage = () => {
 									lg={4}
 									xl={3}
 								>
-									{/* <Property property={property} /> */}
+									<Property property={property} />
 								</Col>
 							))}
 						</Row>
